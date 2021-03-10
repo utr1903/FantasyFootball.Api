@@ -3,3 +3,9 @@ FantasyFootball.Api/obj/
 FantasyFootball.Data/obj/
 FantasyFootball.Entity/obj/
 FantasyFootball.Service/obj/
+/FantasyFootball.Api/bin/Debug/netcoreapp3.1
+/.vs/FantasyFootball.Api
+FantasyFootball.Data/bin/
+FantasyFootball.Entity/bin/
+FantasyFootball.Repository/bin/
+FantasyFootball.Service/bin/

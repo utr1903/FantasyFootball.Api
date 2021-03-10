@@ -2,7 +2,7 @@
 using TrackableEntities.Common.Core;
 using URF.Core.Abstractions.Trackable;
 
-namespace Northwind.Repositories.UserRepository
+namespace FantasyFootball.Repositories.UserRepository
 {
     public interface IUsersRepository<TEntity> : ITrackableRepository<TEntity> where TEntity : class, ITrackable
     {

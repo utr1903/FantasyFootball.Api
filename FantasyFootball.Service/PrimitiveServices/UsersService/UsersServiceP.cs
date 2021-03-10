@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System;
 using FantasyFootball.Entity.Models;
-using Northwind.Repositories.UserRepository;
+using FantasyFootball.Repositories.UserRepository;
 
 namespace FantasyFootball.Service.PrimitiveServices.UsersService
 {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using TrackableEntities.Common.Core;
 using URF.Core.EF.Trackable;
 
-namespace Northwind.Repositories.UserRepository
+namespace FantasyFootball.Repositories.UserRepository
 {
     public class UsersRepository<TEntity> : TrackableRepository<TEntity>, IUsersRepository<TEntity> where TEntity : class, ITrackable
     {
