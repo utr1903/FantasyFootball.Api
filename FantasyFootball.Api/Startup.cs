@@ -44,13 +44,13 @@ namespace FantasyFootball.Api
                 options.JsonSerializerOptions.IgnoreNullValues = true;
             });
 
-            var connectionString = Configuration.GetConnectionString(nameof(FantasyFootballContext));
+            var connectionString = Configuration.GetConnectionString("FantasyFootballConnection");
             services.AddDbContext<FantasyFootballContext>(options => options.UseSqlServer(connectionString));
             services.AddScoped<DbContext, FantasyFootballContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            services.AddScoped<ITrackableRepository<Users>, TrackableRepository<Users>>();
-            services.AddScoped<IUsersRepository<Users>, UsersRepository<Users>>();
+            services.AddScoped<ITrackableRepository<User>, TrackableRepository<User>>();
+            services.AddScoped<IUsersRepository<User>, UsersRepository<User>>();
             services.AddScoped<IUsersServiceP, UsersServiceP>();
         }
 

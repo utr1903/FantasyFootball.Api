@@ -7,13 +7,19 @@ using FantasyFootball.Repositories.UserRepository;
 
 namespace FantasyFootball.Service.PrimitiveServices.UsersService
 {
-    public class UsersServiceP : Service<Users>, IUsersServiceP
+    public class UsersServiceP : Service<User>, IUsersServiceP
     {
-        public UsersServiceP(IUsersRepository<Users> repository) : base(repository)
+        public UsersServiceP(IUsersRepository<User> repository) : base(repository)
         {
         }
 
-        public Users Single(Expression<Func<Users, bool>> predicate)
+        public User Get(Guid userId) => Repository.FindAsync(userId).Result;
+
+        public new void Insert(User user) => Repository.Insert(user);
+
+        public new void Update(User user) => Repository.Update(user);
+
+        public User Single(Expression<Func<User, bool>> predicate)
         {
             return Repository.Queryable().Single(predicate);
         }
