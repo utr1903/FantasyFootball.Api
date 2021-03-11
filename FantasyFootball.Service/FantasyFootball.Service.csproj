@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FantasyFootball.Common\FantasyFootball.Common.csproj" />
     <ProjectReference Include="..\FantasyFootball.Entity\FantasyFootball.Entity.csproj" />
     <ProjectReference Include="..\FantasyFootball.Repository\FantasyFootball.Repository.csproj" />
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler.Models;
+﻿using FantasyFootball.Common.AuthChecker;
+using FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler.Models;
 using FantasyFootball.Service.PrimitiveServices.UsersService;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -8,28 +9,32 @@ namespace FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHand
     public class UserSettingsHandler : IUserSettingsHandler
     {
         // Primitive Services
-        private IUsersServiceP _usersServiceP;
+        private readonly IUsersServiceP _usersServiceP;
 
-        // Http & Config
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        // Commons
+        private readonly IAuthChecker _authChecker;
 
         public UserSettingsHandler(
 
             // Primitive Services
             IUsersServiceP usersServiceP,
 
-            // Http & Config
-            IHttpContextAccessor httpContextAccessor)
+            // Commons
+            IAuthChecker authChecker)
         {
             // Primitive Services
             _usersServiceP = usersServiceP;
 
-            // Http & Config
-            _httpContextAccessor = httpContextAccessor;
+            // Commons
+            _authChecker = authChecker;
         }
 
         public UserSettingsGetResultModel Get(Guid userId)
         {
+            var callerId = _authChecker.GetCallerId();
+            if (callerId != userId)
+                throw new Exception("NoAuthorization");
+
             var user = _usersServiceP.Get(userId);
             if (user == null)
                 throw new Exception("UserNotFound");

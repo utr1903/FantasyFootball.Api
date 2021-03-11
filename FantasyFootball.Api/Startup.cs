@@ -19,6 +19,7 @@ using System;
 using FantasyFootball.Service.AdvancedServices.UsersService;
 using FantasyFootball.Service.AdvancedServices.UsersService.UserAuthenticationHandler;
 using FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler;
+using FantasyFootball.Common.AuthChecker;
 
 namespace FantasyFootball.Api
 {
@@ -80,20 +81,29 @@ namespace FantasyFootball.Api
             services.AddScoped<DbContext, FantasyFootballContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            // Repositories
+            #region Repositories
 
-            // User
+            // Users
             services.AddScoped<ITrackableRepository<User>, TrackableRepository<User>>();
             services.AddScoped<IUsersRepository<User>, UsersRepository<User>>();
 
-            // Primitive Services
+            #endregion Repositories
 
-            // UsersServiceP
-            services.AddScoped<IUsersServiceP, UsersServiceP>();
+            #region PrimitiveServices
             
+            // Users
+            services.AddScoped<IUsersServiceP, UsersServiceP>();
+
+            #endregion PrimitiveServices
+
+            #region Common
+
+            services.AddScoped<IAuthChecker, AuthChecker>();
+            
+            #endregion Common
             // Advanced Services
 
-            // UsersServiceA
+            // Users
             services.AddScoped<IUserAuthenticationHandler, UserAuthenticationHandler>();
             services.AddScoped<IUserSettingsHandler, UserSettingsHandler>();
             services.AddScoped<IUsersServiceA, UsersServiceA>();

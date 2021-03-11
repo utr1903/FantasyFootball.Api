@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "SW3cz8z3pFOF3fFaL9T8ymqzB+DG3UEMAUebOjg/IrwPKZY9iAEKZ4Rj+4MfGDV/JjXSFKrqpuEElOQV8ocWMg==",
+  "success": true,
+  "projectFilePath": "C:\\Codes\\CS\\FantasyFootball.Api\\FantasyFootball.Common\\FantasyFootball.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ugur Türkarslan\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\Ugur Türkarslan\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\Ugur Türkarslan\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\Ugur Türkarslan\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\Ugur Türkarslan\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "C:\\Users\\Ugur Türkarslan\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
+    "C:\\Users\\Ugur Türkarslan\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}
