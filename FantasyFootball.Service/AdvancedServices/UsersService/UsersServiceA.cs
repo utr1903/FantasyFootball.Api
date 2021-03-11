@@ -1,19 +1,34 @@
 ﻿using FantasyFootball.Entity.Models;
 using FantasyFootball.Service.AdvancedServices.UsersService.Authenticator;
 using FantasyFootball.Service.AdvancedServices.UsersService.Authenticator.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace FantasyFootball.Service.AdvancedServices.UsersService
 {
-    public class UsersServiceA
+    public class UsersServiceA : IUsersServiceA
     {
-        private IAuthenticator _authenticator;
+        // Custom Classes
+        private IUserAuthenticator _authenticator;
 
-        public UsersServiceA(IAuthenticator authenticator)
+        // Http & Config
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public UsersServiceA(
+            
+            // Custom Classes
+            IUserAuthenticator authenticator,
+
+            // Http & Config
+            IHttpContextAccessor httpContextAccessor)
         {
+            // Custom Classes
             _authenticator = authenticator;
+
+            // Http & Config
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public AuthenticationResultModel AuthenticateUser(User loginCredentials) =>
-            _authenticator.AuthenticateUser(loginCredentials);
+            _authenticator.Run(loginCredentials);
     }
 }

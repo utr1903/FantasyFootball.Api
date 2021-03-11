@@ -3,8 +3,8 @@ using FantasyFootball.Service.AdvancedServices.UsersService.Authenticator.Models
 
 namespace FantasyFootball.Service.AdvancedServices.UsersService.Authenticator
 {
-    public interface IAuthenticator
+    public interface IUserAuthenticator
     {
-        AuthenticationResultModel AuthenticateUser(User loginCredentials);
+        AuthenticationResultModel Run(User loginCredentials);
     }
 }

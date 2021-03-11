@@ -12,12 +12,12 @@ using System.Text;
 
 namespace FantasyFootball.Service.AdvancedServices.UsersService.Authenticator
 {
-    public class Authenticator
+    public class UserAuthenticator : IUserAuthenticator
     {
         private IUsersServiceP _usersServiceP;
         private IConfiguration _configuration;
 
-        public Authenticator(
+        public UserAuthenticator(
             
             // Primitive Services
             IUsersServiceP usersServiceP,
@@ -32,7 +32,7 @@ namespace FantasyFootball.Service.AdvancedServices.UsersService.Authenticator
             _configuration = configuration;
         }
 
-        public AuthenticationResultModel AuthenticateUser(User loginCredentials)
+        public AuthenticationResultModel Run(User loginCredentials)
         {
             var user = FindUser(loginCredentials);
             if (user == null)
@@ -67,8 +67,7 @@ namespace FantasyFootball.Service.AdvancedServices.UsersService.Authenticator
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Username),
-                //new Claim("fullName", user.FullName.ToString()),
-                //new Claim("role", user.UserRole),
+                new Claim("id", user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 

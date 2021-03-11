@@ -16,6 +16,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System;
+using FantasyFootball.Service.AdvancedServices.UsersService;
+using FantasyFootball.Service.AdvancedServices.UsersService.Authenticator;
 
 namespace FantasyFootball.Api
 {
@@ -63,6 +65,8 @@ namespace FantasyFootball.Api
                     .AllowAnyHeader());
             });
 
+            services.AddHttpContextAccessor();
+
             services.AddMvc();
 
             services.AddMvc().AddJsonOptions(options =>
@@ -75,9 +79,22 @@ namespace FantasyFootball.Api
             services.AddScoped<DbContext, FantasyFootballContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+            // Repositories
+
+            // User
             services.AddScoped<ITrackableRepository<User>, TrackableRepository<User>>();
             services.AddScoped<IUsersRepository<User>, UsersRepository<User>>();
+
+            // Primitive Services
+
+            // UsersServiceP
             services.AddScoped<IUsersServiceP, UsersServiceP>();
+            
+            // Advanced Services
+
+            // UsersServiceA
+            services.AddScoped<IUserAuthenticator, UserAuthenticator>();
+            services.AddScoped<IUsersServiceA, UsersServiceA>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
