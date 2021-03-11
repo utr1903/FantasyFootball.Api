@@ -17,7 +17,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System;
 using FantasyFootball.Service.AdvancedServices.UsersService;
-using FantasyFootball.Service.AdvancedServices.UsersService.Authenticator;
+using FantasyFootball.Service.AdvancedServices.UsersService.UserAuthenticationHandler;
+using FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler;
 
 namespace FantasyFootball.Api
 {
@@ -93,7 +94,8 @@ namespace FantasyFootball.Api
             // Advanced Services
 
             // UsersServiceA
-            services.AddScoped<IUserAuthenticator, UserAuthenticator>();
+            services.AddScoped<IUserAuthenticationHandler, UserAuthenticationHandler>();
+            services.AddScoped<IUserSettingsHandler, UserSettingsHandler>();
             services.AddScoped<IUsersServiceA, UsersServiceA>();
         }
 

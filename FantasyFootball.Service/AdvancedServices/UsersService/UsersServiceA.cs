@@ -1,34 +1,32 @@
 ﻿using FantasyFootball.Entity.Models;
-using FantasyFootball.Service.AdvancedServices.UsersService.Authenticator;
+using FantasyFootball.Service.AdvancedServices.UsersService.UserAuthenticationHandler;
 using FantasyFootball.Service.AdvancedServices.UsersService.Authenticator.Models;
-using Microsoft.AspNetCore.Http;
+using System;
+using FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler.Models;
+using FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler;
 
 namespace FantasyFootball.Service.AdvancedServices.UsersService
 {
     public class UsersServiceA : IUsersServiceA
     {
         // Custom Classes
-        private IUserAuthenticator _authenticator;
-
-        // Http & Config
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IUserAuthenticationHandler _userAuthenticationHandler;
+        private readonly IUserSettingsHandler _userSettingsHandler;        
 
         public UsersServiceA(
             
             // Custom Classes
-            IUserAuthenticator authenticator,
-
-            // Http & Config
-            IHttpContextAccessor httpContextAccessor)
+            IUserAuthenticationHandler authenticator, IUserSettingsHandler userSettingsHandler)
         {
             // Custom Classes
-            _authenticator = authenticator;
-
-            // Http & Config
-            _httpContextAccessor = httpContextAccessor;
+            _userAuthenticationHandler = authenticator;
+            _userSettingsHandler = userSettingsHandler;
         }
 
         public AuthenticationResultModel AuthenticateUser(User loginCredentials) =>
-            _authenticator.Run(loginCredentials);
+            _userAuthenticationHandler.Authenticate(loginCredentials);
+
+        public UserSettingsGetResultModel GetUserSettings(Guid userId) =>
+            _userSettingsHandler.Get(userId);
     }
 }

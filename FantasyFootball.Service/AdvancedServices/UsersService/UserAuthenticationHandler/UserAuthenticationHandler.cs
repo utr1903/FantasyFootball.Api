@@ -10,14 +10,14 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
-namespace FantasyFootball.Service.AdvancedServices.UsersService.Authenticator
+namespace FantasyFootball.Service.AdvancedServices.UsersService.UserAuthenticationHandler
 {
-    public class UserAuthenticator : IUserAuthenticator
+    public class UserAuthenticationHandler : IUserAuthenticationHandler
     {
         private IUsersServiceP _usersServiceP;
         private IConfiguration _configuration;
 
-        public UserAuthenticator(
+        public UserAuthenticationHandler(
             
             // Primitive Services
             IUsersServiceP usersServiceP,
@@ -32,13 +32,13 @@ namespace FantasyFootball.Service.AdvancedServices.UsersService.Authenticator
             _configuration = configuration;
         }
 
-        public AuthenticationResultModel Run(User loginCredentials)
+        public AuthenticationResultModel Authenticate(User loginCredentials)
         {
             var user = FindUser(loginCredentials);
             if (user == null)
                 throw new Exception("UserNotFound");
 
-            var tokenString = GenerateJWTToken(user);
+            var tokenString = GenerateJwtToken(user);
 
             var result = new AuthenticationResultModel
             {
@@ -59,7 +59,7 @@ namespace FantasyFootball.Service.AdvancedServices.UsersService.Authenticator
             return user;
         }
 
-        private string GenerateJWTToken(User user)
+        private string GenerateJwtToken(User user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -67,8 +67,8 @@ namespace FantasyFootball.Service.AdvancedServices.UsersService.Authenticator
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Username),
-                new Claim("id", user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.PrimarySid, user.Id.ToString())
             };
 
             var token = new JwtSecurityToken(

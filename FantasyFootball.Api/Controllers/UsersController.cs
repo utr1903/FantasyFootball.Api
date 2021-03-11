@@ -1,4 +1,4 @@
-﻿using FantasyFootball.Service.PrimitiveServices.UsersService;
+﻿using FantasyFootball.Service.AdvancedServices.UsersService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,19 +9,21 @@ namespace FantasyFootball.Api.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly IUsersServiceP _usersService;
-        public UsersController(IUsersServiceP usersService)
+        // Advanced Services
+        private readonly IUsersServiceA _usersServiceA;
+
+        public UsersController(IUsersServiceA usersServiceA)
         {
-            _usersService = usersService;
+            _usersServiceA = usersServiceA;
         }
 
         [HttpPost]
-        [Route("GetUser")]
+        [Route("GetUserSettings")]
         //[Authorize(Policy = Policies.User)]
         [Authorize]
-        public ActionResult GetUser([FromBody] Guid userId)
+        public ActionResult GetUserSettings([FromBody] Guid userId)
         {
-            var user = _usersService.Get(userId);
+            var user = _usersServiceA.GetUserSettings(userId);
             return Ok(user);
         }
     }
