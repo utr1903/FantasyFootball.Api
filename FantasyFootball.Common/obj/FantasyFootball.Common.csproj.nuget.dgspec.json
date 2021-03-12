@@ -10,11 +10,11 @@
         "projectUniqueName": "C:\\Codes\\CS\\FantasyFootball.Api\\FantasyFootball.Common\\FantasyFootball.Common.csproj",
         "projectName": "FantasyFootball.Common",
         "projectPath": "C:\\Codes\\CS\\FantasyFootball.Api\\FantasyFootball.Common\\FantasyFootball.Common.csproj",
-        "packagesPath": "C:\\Users\\Ugur Türkarslan\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\ugurt\\.nuget\\packages\\",
         "outputPath": "C:\\Codes\\CS\\FantasyFootball.Api\\FantasyFootball.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ugur Türkarslan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ugurt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,18 +55,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.10, 3.1.10]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200-preview.21077.7\\RuntimeIdentifierGraph.json"
         }
       }
     }

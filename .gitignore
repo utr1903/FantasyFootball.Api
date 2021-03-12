@@ -1,10 +1,12 @@
 /.vs/FantasyFootball.Api
+/FantasyFootball.Api/obj/
 FantasyFootball.Api/obj/
 FantasyFootball.Common/obj/
 FantasyFootball.Repository/obj/
 FantasyFootball.Data/obj/
 FantasyFootball.Entity/obj/
 FantasyFootball.Service/obj/
+/FantasyFootball.Api/bin/
 FantasyFootball.Api/bin/
 FantasyFootball.Common/bin/
 FantasyFootball.Data/bin/
