@@ -1,4 +1,5 @@
-﻿using FantasyFootball.Service.AdvancedServices.UsersService;
+﻿using FantasyFootball.Common.Exceptions;
+using FantasyFootball.Service.AdvancedServices.UsersService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -23,8 +24,19 @@ namespace FantasyFootball.Api.Controllers
         [Authorize]
         public ActionResult GetUserSettings([FromBody] Guid userId)
         {
-            var user = _usersServiceA.GetUserSettings(userId);
-            return Ok(user);
+            try
+            {
+                var user = _usersServiceA.GetUserSettings(userId);
+                return Ok(user);
+            }
+            catch (CustomException e)
+            {
+                return Ok(e.Get());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
         }
     }
 }

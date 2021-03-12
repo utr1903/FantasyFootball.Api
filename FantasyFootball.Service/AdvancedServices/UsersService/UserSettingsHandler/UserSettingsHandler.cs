@@ -1,4 +1,5 @@
 ﻿using FantasyFootball.Common.AuthChecker;
+using FantasyFootball.Common.Exceptions;
 using FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler.Models;
 using FantasyFootball.Service.PrimitiveServices.UsersService;
 using Microsoft.AspNetCore.Http;
@@ -29,15 +30,15 @@ namespace FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHand
             _authChecker = authChecker;
         }
 
-        public UserSettingsGetResultModel Get(Guid userId)
+        public UserSettingsGetResultModel GetUserSettings(Guid userId)
         {
             var callerId = _authChecker.GetCallerId();
             if (callerId != userId)
-                throw new Exception("NoAuthorization");
+                throw new UserNotAuthorized();
 
             var user = _usersServiceP.Get(userId);
             if (user == null)
-                throw new Exception("UserNotFound");
+                throw new UserNotFound();
 
             var result = new UserSettingsGetResultModel
             {

@@ -27,6 +27,6 @@ namespace FantasyFootball.Service.AdvancedServices.UsersService
             _userAuthenticationHandler.Authenticate(loginCredentials);
 
         public UserSettingsGetResultModel GetUserSettings(Guid userId) =>
-            _userSettingsHandler.Get(userId);
+            _userSettingsHandler.GetUserSettings(userId);
     }
 }

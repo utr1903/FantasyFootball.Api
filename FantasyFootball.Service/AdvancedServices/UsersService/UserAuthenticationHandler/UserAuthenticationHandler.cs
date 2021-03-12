@@ -1,4 +1,5 @@
-﻿using FantasyFootball.Entity.Models;
+﻿using FantasyFootball.Common.Exceptions;
+using FantasyFootball.Entity.Models;
 using FantasyFootball.Service.AdvancedServices.UsersService.Authenticator.Models;
 using FantasyFootball.Service.PrimitiveServices.UsersService;
 using LinqKit;
@@ -36,7 +37,7 @@ namespace FantasyFootball.Service.AdvancedServices.UsersService.UserAuthenticati
         {
             var user = FindUser(loginCredentials);
             if (user == null)
-                throw new Exception("UserNotFound");
+                throw new UserNotFound();
 
             var tokenString = GenerateJwtToken(user);
 

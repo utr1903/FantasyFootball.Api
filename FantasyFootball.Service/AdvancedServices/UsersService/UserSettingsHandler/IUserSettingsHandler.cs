@@ -5,6 +5,6 @@ namespace FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHand
 {
     public interface IUserSettingsHandler
     {
-        UserSettingsGetResultModel Get(Guid userId);
+        UserSettingsGetResultModel GetUserSettings(Guid userId);
     }
 }

@@ -1,8 +1,10 @@
-﻿using FantasyFootball.Entity.Models;
+﻿using FantasyFootball.Common.Exceptions;
+using FantasyFootball.Entity.Models;
 using FantasyFootball.Service.AdvancedServices.UsersService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace FantasyFootball.Api.Controllers
 {
@@ -38,8 +40,19 @@ namespace FantasyFootball.Api.Controllers
             if (!ModelState.IsValid)
                 return ValidationProblem();
 
-            var result = _userServiceA.AuthenticateUser(loginCreditentials);
-            return Ok(result);
+            try
+            {
+                var result = _userServiceA.AuthenticateUser(loginCreditentials);
+                return Ok(result);
+            }
+            catch (CustomException e)
+            {
+                return Ok(e.Get());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
         }
     }
 }
