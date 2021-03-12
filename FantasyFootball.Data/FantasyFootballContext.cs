@@ -156,8 +156,22 @@ namespace FantasyFootball.Data
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
+                entity.Property(e => e.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LastName)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Password)
                     .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Phone)
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
@@ -170,7 +184,7 @@ namespace FantasyFootball.Data
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.LanguageId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Users__LanguageI__3B75D760");
+                    .HasConstraintName("FK__Users__LanguageI__59FA5E80");
             });
 
             OnModelCreatingPartial(modelBuilder);
