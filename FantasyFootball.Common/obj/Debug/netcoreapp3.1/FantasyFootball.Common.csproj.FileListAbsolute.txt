@@ -1,9 +1,0 @@
-C:\Codes\CS\FantasyFootball.Api\FantasyFootball.Common\bin\Debug\netcoreapp3.1\FantasyFootball.Common.deps.json
-C:\Codes\CS\FantasyFootball.Api\FantasyFootball.Common\bin\Debug\netcoreapp3.1\FantasyFootball.Common.dll
-C:\Codes\CS\FantasyFootball.Api\FantasyFootball.Common\bin\Debug\netcoreapp3.1\FantasyFootball.Common.pdb
-C:\Codes\CS\FantasyFootball.Api\FantasyFootball.Common\obj\Debug\netcoreapp3.1\FantasyFootball.Common.csprojAssemblyReference.cache
-C:\Codes\CS\FantasyFootball.Api\FantasyFootball.Common\obj\Debug\netcoreapp3.1\FantasyFootball.Common.AssemblyInfoInputs.cache
-C:\Codes\CS\FantasyFootball.Api\FantasyFootball.Common\obj\Debug\netcoreapp3.1\FantasyFootball.Common.AssemblyInfo.cs
-C:\Codes\CS\FantasyFootball.Api\FantasyFootball.Common\obj\Debug\netcoreapp3.1\FantasyFootball.Common.csproj.CoreCompileInputs.cache
-C:\Codes\CS\FantasyFootball.Api\FantasyFootball.Common\obj\Debug\netcoreapp3.1\FantasyFootball.Common.dll
-C:\Codes\CS\FantasyFootball.Api\FantasyFootball.Common\obj\Debug\netcoreapp3.1\FantasyFootball.Common.pdb
