@@ -5,11 +5,11 @@ using System;
 using FantasyFootball.Entity.Models;
 using FantasyFootball.Repositories.UserRepository;
 
-namespace FantasyFootball.Service.PrimitiveServices.UsersService
+namespace FantasyFootball.Service.PrimitiveServices.UserServiceP
 {
-    public class UsersServiceP : Service<User>, IUsersServiceP
+    public class UserServiceP : Service<User>, IUserServiceP
     {
-        public UsersServiceP(IUsersRepository<User> repository) : base(repository)
+        public UserServiceP(IUserRepository<User> repository) : base(repository)
         {
         }
 

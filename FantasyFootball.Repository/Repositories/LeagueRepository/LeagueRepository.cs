@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using TrackableEntities.Common.Core;
 using URF.Core.EF.Trackable;
 
-namespace FantasyFootball.Repositories.UserRepository
+namespace FantasyFootball.Repositories.LeagueRepository
 {
-    public class UserRepository<TEntity> : TrackableRepository<TEntity>, IUserRepository<TEntity> where TEntity : class, ITrackable
+    public class LeagueRepository<TEntity> : TrackableRepository<TEntity>, ILeagueRepository<TEntity> where TEntity : class, ITrackable
     {
-        public UserRepository(DbContext context) : base(context)
+        public LeagueRepository(DbContext context) : base(context)
         {
 
         }

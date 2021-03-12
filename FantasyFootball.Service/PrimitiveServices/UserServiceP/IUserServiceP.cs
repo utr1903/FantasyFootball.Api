@@ -3,9 +3,9 @@ using System;
 using System.Linq.Expressions;
 using URF.Core.Abstractions.Services;
 
-namespace FantasyFootball.Service.PrimitiveServices.UsersService
+namespace FantasyFootball.Service.PrimitiveServices.UserServiceP
 {
-    public interface IUsersServiceP : IService<User>
+    public interface IUserServiceP : IService<User>
     {
         User Get(Guid userId);
         new void Insert(User user);

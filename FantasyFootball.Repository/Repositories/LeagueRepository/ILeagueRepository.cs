@@ -2,9 +2,9 @@
 using TrackableEntities.Common.Core;
 using URF.Core.Abstractions.Trackable;
 
-namespace FantasyFootball.Repositories.UserRepository
+namespace FantasyFootball.Repositories.LeagueRepository
 {
-    public interface IUserRepository<TEntity> : ITrackableRepository<TEntity> where TEntity : class, ITrackable
+    public interface ILeagueRepository<TEntity> : ITrackableRepository<TEntity> where TEntity : class, ITrackable
     {
         TEntity Find(object[] keyValues, CancellationToken cancellationToken = default);
     }
