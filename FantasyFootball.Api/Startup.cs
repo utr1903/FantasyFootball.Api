@@ -32,6 +32,14 @@ using FantasyFootball.Service.PrimitiveServices.LanguageServiceP;
 using FantasyFootball.Service.PrimitiveServices.LeagueServiceP;
 using FantasyFootball.Service.PrimitiveServices.PlayerServiceP;
 using FantasyFootball.Service.PrimitiveServices.PositionServiceP;
+using FantasyFootball.Repositories.FormationRepository;
+using FantasyFootball.Repositories.MatchWeekRepository;
+using FantasyFootball.Repositories.PlayerHistoryRepository;
+using FantasyFootball.Repositories.SeasonRepository;
+using FantasyFootball.Repositories.SocialLeagueMemberRepository;
+using FantasyFootball.Repositories.SocialLeagueRepository;
+using FantasyFootball.Repositories.UserTeamPlayerRepository;
+using FantasyFootball.Repositories.UserTeamRepository;
 
 namespace FantasyFootball.Api
 {
@@ -103,6 +111,10 @@ namespace FantasyFootball.Api
             services.AddScoped<ITrackableRepository<Country>, TrackableRepository<Country>>();
             services.AddScoped<ICountryRepository<Country>, CountryRepository<Country>>();
 
+            // Formation
+            services.AddScoped<ITrackableRepository<Formation>, TrackableRepository<Formation>>();
+            services.AddScoped<IFormationRepository<Formation>, FormationRepository<Formation>>();
+
             // Language
             services.AddScoped<ITrackableRepository<Language>, TrackableRepository<Language>>();
             services.AddScoped<ILanguageRepository<Language>, LanguageRepository<Language>>();
@@ -110,6 +122,14 @@ namespace FantasyFootball.Api
             // League
             services.AddScoped<ITrackableRepository<League>, TrackableRepository<League>>();
             services.AddScoped<ILeagueRepository<League>, LeagueRepository<League>>();
+
+            // MatchWeek
+            services.AddScoped<ITrackableRepository<MatchWeek>, TrackableRepository<MatchWeek>>();
+            services.AddScoped<IMatchWeekRepository<MatchWeek>, MatchWeekRepository<MatchWeek>>();
+
+            // PlayerHistory
+            services.AddScoped<ITrackableRepository<PlayerHistory>, TrackableRepository<PlayerHistory>>();
+            services.AddScoped<IPlayerHistoryRepository<PlayerHistory>, PlayerHistoryRepository<PlayerHistory>>();
 
             // Player
             services.AddScoped<ITrackableRepository<Player>, TrackableRepository<Player>>();
@@ -119,9 +139,29 @@ namespace FantasyFootball.Api
             services.AddScoped<ITrackableRepository<Position>, TrackableRepository<Position>>();
             services.AddScoped<IPositionRepository<Position>, PositionRepository<Position>>();
 
+            // Season
+            services.AddScoped<ITrackableRepository<Season>, TrackableRepository<Season>>();
+            services.AddScoped<ISeasonRepository<Season>, SeasonRepository<Season>>();
+
+            // SocialLeagueMember
+            services.AddScoped<ITrackableRepository<SocialLeagueMember>, TrackableRepository<SocialLeagueMember>>();
+            services.AddScoped<ISocialLeagueMemberRepository<SocialLeagueMember>, SocialLeagueMemberRepository<SocialLeagueMember>>();
+
+            // SocialLeague
+            services.AddScoped<ITrackableRepository<SocialLeague>, TrackableRepository<SocialLeague>>();
+            services.AddScoped<ISocialLeagueRepository<SocialLeague>, SocialLeagueRepository<SocialLeague>>();
+
             // User
             services.AddScoped<ITrackableRepository<User>, TrackableRepository<User>>();
             services.AddScoped<IUserRepository<User>, UserRepository<User>>();
+
+            // UserTeamPlayer
+            services.AddScoped<ITrackableRepository<UserTeamPlayer>, TrackableRepository<UserTeamPlayer>>();
+            services.AddScoped<IUserTeamPlayerRepository<UserTeamPlayer>, UserTeamPlayerRepository<UserTeamPlayer>>();
+
+            // UserTeam
+            services.AddScoped<ITrackableRepository<UserTeam>, TrackableRepository<UserTeam>>();
+            services.AddScoped<IUserTeamRepository<UserTeam>, UserTeamRepository<UserTeam>>();
 
             #endregion Repositories
 
