@@ -40,6 +40,14 @@ using FantasyFootball.Repositories.SocialLeagueMemberRepository;
 using FantasyFootball.Repositories.SocialLeagueRepository;
 using FantasyFootball.Repositories.UserTeamPlayerRepository;
 using FantasyFootball.Repositories.UserTeamRepository;
+using FantasyFootball.Service.PrimitiveServices.FormationServiceP;
+using FantasyFootball.Service.PrimitiveServices.MatchWeekServiceP;
+using FantasyFootball.Service.PrimitiveServices.PlayerHistoryServiceP;
+using FantasyFootball.Service.PrimitiveServices.SeasonServiceP;
+using FantasyFootball.Service.PrimitiveServices.SocialLeagueMemberServiceP;
+using FantasyFootball.Service.PrimitiveServices.SocialLeagueServiceP;
+using FantasyFootball.Service.PrimitiveServices.UserTeamPlayerServiceP;
+using FantasyFootball.Service.PrimitiveServices.UserTeamServiceP;
 
 namespace FantasyFootball.Api
 {
@@ -173,11 +181,20 @@ namespace FantasyFootball.Api
             // Country
             services.AddScoped<ICountryServiceP, CountryServiceP>();
 
+            // Formation
+            services.AddScoped<IFormationServiceP, FormationServiceP>();
+
             // Language
             services.AddScoped<ILanguageServiceP, LanguageServiceP>();
 
             // League
             services.AddScoped<ILeagueServiceP, LeagueServiceP>();
+
+            // MatchWeek
+            services.AddScoped<IMatchWeekServiceP, MatchWeekServiceP>();
+
+            // PlayerHistory
+            services.AddScoped<IPlayerHistoryServiceP, PlayerHistoryServiceP>();
 
             // Player
             services.AddScoped<IPlayerServiceP, PlayerServiceP>();
@@ -185,8 +202,23 @@ namespace FantasyFootball.Api
             // Position
             services.AddScoped<IPositionServiceP, PositionServiceP>();
 
+            // Season
+            services.AddScoped<ISeasonServiceP, SeasonServiceP>();
+
+            // SocialLeagueMember
+            services.AddScoped<ISocialLeagueMemberServiceP, SocialLeagueMemberServiceP>();
+
+            // SocialLeague
+            services.AddScoped<ISocialLeagueServiceP, SocialLeagueServiceP>();
+
             // User
             services.AddScoped<IUserServiceP, UserServiceP>();
+
+            // UserTeamPlayer
+            services.AddScoped<IUserTeamPlayerServiceP, UserTeamPlayerServiceP>();
+
+            // UserTeam
+            services.AddScoped<IUserTeamServiceP, UserTeamServiceP>();
 
             #endregion PrimitiveServices
 
