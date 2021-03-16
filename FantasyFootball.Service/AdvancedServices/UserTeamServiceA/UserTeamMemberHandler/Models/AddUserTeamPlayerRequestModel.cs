@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FantasyFootball.Service.AdvancedServices.UserTeamService.UserTeamMemberHandler.Models
+namespace FantasyFootball.Service.AdvancedServices.UserTeamServiceA.UserTeamMemberHandler.Models
 {
     public class AddUserTeamPlayerRequestModel
     {

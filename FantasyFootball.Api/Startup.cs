@@ -50,6 +50,7 @@ using FantasyFootball.Service.PrimitiveServices.UserTeamServiceP;
 using FantasyFootball.Service.AdvancedServices.UserServiceA;
 using FantasyFootball.Repositories.PlayerPositionRepository;
 using FantasyFootball.Service.PrimitiveServices.PlayerPositionServiceP;
+using FantasyFootball.Service.AdvancedServices.UserTeamServiceA;
 
 namespace FantasyFootball.Api
 {
@@ -243,6 +244,9 @@ namespace FantasyFootball.Api
             services.AddScoped<IUserAuthenticationHandler, UserAuthenticationHandler>();
             services.AddScoped<IUserSettingsHandler, UserSettingsHandler>();
             services.AddScoped<IUserServiceA, UserServiceA>();
+
+            // UserTeam
+            services.AddScoped<IUserTeamServiceA, UserTeamServiceA>();
 
             #endregion AdvancedServices
         }

@@ -15,4 +15,13 @@
             ResultData = resultData;
         }
     }
+
+    public class PlayerPositionNotValid : NotValidException
+    {
+        public PlayerPositionNotValid()
+        {
+            ExceptionType = ExceptionTypes.NOT_VALID;
+            ResultData = "Player cannot play on this position!";
+        }
+    }
 }
