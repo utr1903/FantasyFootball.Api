@@ -13,7 +13,7 @@ namespace FantasyFootball.Service.PrimitiveServices.PositionServiceP
         {
         }
 
-        public Position Get(Guid positionId) => Repository.FindAsync(positionId).Result;
+        public Position Get(int positionId) => Repository.FindAsync(positionId).Result;
 
         public new void Insert(Position position) => Repository.Insert(position);
 

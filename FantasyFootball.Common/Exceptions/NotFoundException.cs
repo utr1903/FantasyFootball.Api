@@ -33,4 +33,13 @@
             ResultData = "Player history not found!";
         }
     }
+
+    public class PositionNotFound : NotFoundException
+    {
+        public PositionNotFound()
+        {
+            ExceptionType = ExceptionTypes.NOT_FOUND;
+            ResultData = "Position not found!";
+        }
+    }
 }

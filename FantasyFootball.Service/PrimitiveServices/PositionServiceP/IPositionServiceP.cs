@@ -7,7 +7,7 @@ namespace FantasyFootball.Service.PrimitiveServices.PositionServiceP
 {
     public interface IPositionServiceP : IService<Position>
     {
-        Position Get(Guid positionId);
+        Position Get(int positionId);
         new void Insert(Position position);
         new void Update(Position position);
         Position Single(Expression<Func<Position, bool>> predicate);

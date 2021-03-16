@@ -330,7 +330,12 @@ namespace FantasyFootball.Data
                 entity.HasOne(d => d.Position)
                     .WithMany(p => p.UserTeamPlayers)
                     .HasForeignKey(d => d.PositionId)
-                    .HasConstraintName("FK__UserTeamP__Posit__7F2BE32F");
+                    .HasConstraintName("FK__UserTeamP__Posit__01142BA1");
+
+                entity.HasOne(d => d.UserTeam)
+                    .WithMany(p => p.UserTeamPlayers)
+                    .HasForeignKey(d => d.UserTeamId)
+                    .HasConstraintName("FK__UserTeamP__UserT__00200768");
             });
 
             OnModelCreatingPartial(modelBuilder);
