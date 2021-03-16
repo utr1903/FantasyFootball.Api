@@ -20,17 +20,24 @@ namespace FantasyFootball.Data
 
         public virtual DbSet<Club> Clubs { get; set; }
         public virtual DbSet<Country> Countrys { get; set; }
+        public virtual DbSet<Formation> Formations { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<League> Leagues { get; set; }
+        public virtual DbSet<MatchWeek> MatchWeeks { get; set; }
         public virtual DbSet<Player> Players { get; set; }
+        public virtual DbSet<PlayerHistory> PlayerHistorys { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
+        public virtual DbSet<Season> Seasons { get; set; }
+        public virtual DbSet<SocialLeague> SocialLeagues { get; set; }
+        public virtual DbSet<SocialLeagueMember> SocialLeagueMembers { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserTeam> UserTeams { get; set; }
+        public virtual DbSet<UserTeamPlayer> UserTeamPlayers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=localhost;Database=FantasyFootball;Trusted_Connection=True;");
             }
         }
@@ -71,6 +78,16 @@ namespace FantasyFootball.Data
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<Formation>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Language>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
@@ -103,6 +120,13 @@ namespace FantasyFootball.Data
                     .HasConstraintName("FK__Leagues__Country__45F365D3");
             });
 
+            modelBuilder.Entity<MatchWeek>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Date).HasColumnType("datetime");
+            });
+
             modelBuilder.Entity<Player>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
@@ -117,23 +141,34 @@ namespace FantasyFootball.Data
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Club)
-                    .WithMany(p => p.Players)
-                    .HasForeignKey(d => d.ClubId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Players__ClubId__5441852A");
-
                 entity.HasOne(d => d.Country)
                     .WithMany(p => p.Players)
                     .HasForeignKey(d => d.CountryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Players__Country__5629CD9C");
+            });
 
-                entity.HasOne(d => d.Position)
-                    .WithMany(p => p.Players)
-                    .HasForeignKey(d => d.PositionId)
+            modelBuilder.Entity<PlayerHistory>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.HasOne(d => d.Club)
+                    .WithMany(p => p.PlayerHistories)
+                    .HasForeignKey(d => d.ClubId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Players__Positio__5535A963");
+                    .HasConstraintName("FK__PlayerHis__ClubI__6C190EBB");
+
+                entity.HasOne(d => d.MatchWeek)
+                    .WithMany(p => p.PlayerHistories)
+                    .HasForeignKey(d => d.MatchWeekId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__PlayerHis__Match__6D0D32F4");
+
+                entity.HasOne(d => d.Player)
+                    .WithMany(p => p.PlayerHistories)
+                    .HasForeignKey(d => d.PlayerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__PlayerHis__Playe__6B24EA82");
             });
 
             modelBuilder.Entity<Position>(entity =>
@@ -145,6 +180,55 @@ namespace FantasyFootball.Data
                     .IsUnicode(false);
 
                 entity.Property(e => e.PId).HasColumnName("pId");
+            });
+
+            modelBuilder.Entity<Season>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<SocialLeague>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.League)
+                    .WithMany(p => p.SocialLeagues)
+                    .HasForeignKey(d => d.LeagueId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__SocialLea__Leagu__60A75C0F");
+
+                entity.HasOne(d => d.Season)
+                    .WithMany(p => p.SocialLeagues)
+                    .HasForeignKey(d => d.SeasonId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__SocialLea__Seaso__619B8048");
+            });
+
+            modelBuilder.Entity<SocialLeagueMember>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.HasOne(d => d.SocialLeague)
+                    .WithMany(p => p.SocialLeagueMembers)
+                    .HasForeignKey(d => d.SocialLeagueId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__SocialLea__Socia__6FE99F9F");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.SocialLeagueMembers)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__SocialLea__UserI__70DDC3D8");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -185,6 +269,40 @@ namespace FantasyFootball.Data
                     .HasForeignKey(d => d.LanguageId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Users__LanguageI__59FA5E80");
+            });
+
+            modelBuilder.Entity<UserTeam>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.HasOne(d => d.MatchWeek)
+                    .WithMany(p => p.UserTeams)
+                    .HasForeignKey(d => d.MatchWeekId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__UserTeams__Match__75A278F5");
+
+                entity.HasOne(d => d.SocialLeague)
+                    .WithMany(p => p.UserTeams)
+                    .HasForeignKey(d => d.SocialLeagueId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__UserTeams__Socia__74AE54BC");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.UserTeams)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__UserTeams__UserI__73BA3083");
+            });
+
+            modelBuilder.Entity<UserTeamPlayer>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.HasOne(d => d.PlayerHistory)
+                    .WithMany(p => p.UserTeamPlayers)
+                    .HasForeignKey(d => d.PlayerHistoryId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__UserTeamP__Playe__787EE5A0");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -3,13 +3,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System;
 using FantasyFootball.Entity.Models;
-using FantasyFootball.Repositories.UserRepository;
+using FantasyFootball.Repositories.PlayerRepository;
 
 namespace FantasyFootball.Service.PrimitiveServices.PlayerServiceP
 {
     public class PlayerServiceP : Service<Player>, IPlayerServiceP
     {
-        public PlayerServiceP(IUserRepository<Player> repository) : base(repository)
+        public PlayerServiceP(IPlayerRepository<Player> repository) : base(repository)
         {
         }
 

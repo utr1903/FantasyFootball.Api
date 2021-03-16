@@ -5,24 +5,21 @@ using System.Collections.Generic;
 
 namespace FantasyFootball.Entity.Models
 {
-    public partial class User : URF.Core.EF.Trackable.Entity
+    public partial class SocialLeague : URF.Core.EF.Trackable.Entity
     {
-        public User()
+        public SocialLeague()
         {
             SocialLeagueMembers = new HashSet<SocialLeagueMember>();
             UserTeams = new HashSet<UserTeam>();
         }
 
         public Guid Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public int LanguageId { get; set; }
+        public string Name { get; set; }
+        public Guid LeagueId { get; set; }
+        public int SeasonId { get; set; }
 
-        public virtual Language Language { get; set; }
+        public virtual League League { get; set; }
+        public virtual Season Season { get; set; }
         public virtual ICollection<SocialLeagueMember> SocialLeagueMembers { get; set; }
         public virtual ICollection<UserTeam> UserTeams { get; set; }
     }

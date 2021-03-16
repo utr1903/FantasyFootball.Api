@@ -5,10 +5,9 @@ using System.Collections.Generic;
 
 namespace FantasyFootball.Entity.Models
 {
-    public partial class Position : URF.Core.EF.Trackable.Entity
+    public partial class Formation : URF.Core.EF.Trackable.Entity
     {
         public int Id { get; set; }
-        public int? PId { get; set; }
-        public string Code { get; set; }
+        public string Name { get; set; }
     }
 }

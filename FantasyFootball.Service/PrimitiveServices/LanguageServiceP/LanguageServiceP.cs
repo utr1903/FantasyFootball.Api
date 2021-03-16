@@ -3,13 +3,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System;
 using FantasyFootball.Entity.Models;
-using FantasyFootball.Repositories.UserRepository;
+using FantasyFootball.Repositories.LanguageRepository;
 
 namespace FantasyFootball.Service.PrimitiveServices.LanguageServiceP
 {
     public class LanguageServiceP : Service<Language>, ILanguageServiceP
     {
-        public LanguageServiceP(IUserRepository<Language> repository) : base(repository)
+        public LanguageServiceP(ILanguageRepository<Language> repository) : base(repository)
         {
         }
 

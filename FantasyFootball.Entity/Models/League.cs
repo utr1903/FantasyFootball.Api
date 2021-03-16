@@ -10,6 +10,7 @@ namespace FantasyFootball.Entity.Models
         public League()
         {
             Clubs = new HashSet<Club>();
+            SocialLeagues = new HashSet<SocialLeague>();
         }
 
         public Guid Id { get; set; }
@@ -19,5 +20,6 @@ namespace FantasyFootball.Entity.Models
 
         public virtual Country Country { get; set; }
         public virtual ICollection<Club> Clubs { get; set; }
+        public virtual ICollection<SocialLeague> SocialLeagues { get; set; }
     }
 }

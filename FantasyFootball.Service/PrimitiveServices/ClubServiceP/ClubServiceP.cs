@@ -4,12 +4,13 @@ using System.Linq.Expressions;
 using System;
 using FantasyFootball.Entity.Models;
 using FantasyFootball.Repositories.UserRepository;
+using FantasyFootball.Repositories.ClubRepository;
 
 namespace FantasyFootball.Service.PrimitiveServices.ClubServiceP
 {
     public class ClubServiceP : Service<Club>, IClubServiceP
     {
-        public ClubServiceP(IUserRepository<Club> repository) : base(repository)
+        public ClubServiceP(IClubRepository<Club> repository) : base(repository)
         {
         }
 

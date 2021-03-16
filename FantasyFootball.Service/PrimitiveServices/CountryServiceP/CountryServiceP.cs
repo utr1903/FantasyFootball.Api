@@ -4,12 +4,13 @@ using System.Linq.Expressions;
 using System;
 using FantasyFootball.Entity.Models;
 using FantasyFootball.Repositories.UserRepository;
+using FantasyFootball.Repositories.CountryRepository;
 
 namespace FantasyFootball.Service.PrimitiveServices.CountryServiceP
 {
     public class CountryServiceP : Service<Country>, ICountryServiceP
     {
-        public CountryServiceP(IUserRepository<Country> repository) : base(repository)
+        public CountryServiceP(ICountryRepository<Country> repository) : base(repository)
         {
         }
 

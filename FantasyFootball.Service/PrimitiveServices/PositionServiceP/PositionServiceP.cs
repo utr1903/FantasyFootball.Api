@@ -3,13 +3,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System;
 using FantasyFootball.Entity.Models;
-using FantasyFootball.Repositories.UserRepository;
+using FantasyFootball.Repositories.PositionRepository;
 
 namespace FantasyFootball.Service.PrimitiveServices.PositionServiceP
 {
     public class PositionServiceP : Service<Position>, IPositionServiceP
     {
-        public PositionServiceP(IUserRepository<Position> repository) : base(repository)
+        public PositionServiceP(IPositionRepository<Position> repository) : base(repository)
         {
         }
 

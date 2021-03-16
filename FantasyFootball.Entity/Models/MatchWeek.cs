@@ -5,18 +5,18 @@ using System.Collections.Generic;
 
 namespace FantasyFootball.Entity.Models
 {
-    public partial class Club : URF.Core.EF.Trackable.Entity
+    public partial class MatchWeek : URF.Core.EF.Trackable.Entity
     {
-        public Club()
+        public MatchWeek()
         {
             PlayerHistories = new HashSet<PlayerHistory>();
+            UserTeams = new HashSet<UserTeam>();
         }
 
         public Guid Id { get; set; }
-        public string Name { get; set; }
-        public Guid LeagueId { get; set; }
+        public DateTime? Date { get; set; }
 
-        public virtual League League { get; set; }
         public virtual ICollection<PlayerHistory> PlayerHistories { get; set; }
+        public virtual ICollection<UserTeam> UserTeams { get; set; }
     }
 }
