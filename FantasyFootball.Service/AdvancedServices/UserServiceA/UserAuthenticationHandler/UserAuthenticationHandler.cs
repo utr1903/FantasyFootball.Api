@@ -1,6 +1,6 @@
 ﻿using FantasyFootball.Common.Exceptions;
 using FantasyFootball.Entity.Models;
-using FantasyFootball.Service.AdvancedServices.UsersService.Authenticator.Models;
+using FantasyFootball.Service.AdvancedServices.UserServiceA.Authenticator.Models;
 using FantasyFootball.Service.PrimitiveServices.UserServiceP;
 using LinqKit;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
-namespace FantasyFootball.Service.AdvancedServices.UsersService.UserAuthenticationHandler
+namespace FantasyFootball.Service.AdvancedServices.UserServiceA.UserAuthenticationHandler
 {
     public class UserAuthenticationHandler : IUserAuthenticationHandler
     {

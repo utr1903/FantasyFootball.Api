@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler.Models
+namespace FantasyFootball.Service.AdvancedServices.UserServiceA.UserSettingsHandler.Models
 {
     public class UserSettingsGetResultModel
     {

@@ -15,9 +15,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System;
-using FantasyFootball.Service.AdvancedServices.UsersService;
-using FantasyFootball.Service.AdvancedServices.UsersService.UserAuthenticationHandler;
-using FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler;
+using FantasyFootball.Service.AdvancedServices.UserServiceA.UserAuthenticationHandler;
+using FantasyFootball.Service.AdvancedServices.UserServiceA.UserSettingsHandler;
 using FantasyFootball.Common.AuthChecker;
 using FantasyFootball.Repositories.ClubRepository;
 using FantasyFootball.Repositories.CountryRepository;
@@ -48,6 +47,7 @@ using FantasyFootball.Service.PrimitiveServices.SocialLeagueMemberServiceP;
 using FantasyFootball.Service.PrimitiveServices.SocialLeagueServiceP;
 using FantasyFootball.Service.PrimitiveServices.UserTeamPlayerServiceP;
 using FantasyFootball.Service.PrimitiveServices.UserTeamServiceP;
+using FantasyFootball.Service.AdvancedServices.UserServiceA;
 
 namespace FantasyFootball.Api
 {
@@ -233,7 +233,7 @@ namespace FantasyFootball.Api
             // Users
             services.AddScoped<IUserAuthenticationHandler, UserAuthenticationHandler>();
             services.AddScoped<IUserSettingsHandler, UserSettingsHandler>();
-            services.AddScoped<IUsersServiceA, UsersServiceA>();
+            services.AddScoped<IUserServiceA, UserServiceA>();
 
             #endregion AdvancedServices
         }

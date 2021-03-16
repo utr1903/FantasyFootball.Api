@@ -1,7 +1,7 @@
 ﻿using FantasyFootball.Entity.Models;
-using FantasyFootball.Service.AdvancedServices.UsersService.Authenticator.Models;
+using FantasyFootball.Service.AdvancedServices.UserServiceA.Authenticator.Models;
 
-namespace FantasyFootball.Service.AdvancedServices.UsersService.UserAuthenticationHandler
+namespace FantasyFootball.Service.AdvancedServices.UserServiceA.UserAuthenticationHandler
 {
     public interface IUserAuthenticationHandler
     {

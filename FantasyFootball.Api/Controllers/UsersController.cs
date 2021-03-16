@@ -1,5 +1,5 @@
 ﻿using FantasyFootball.Common.Exceptions;
-using FantasyFootball.Service.AdvancedServices.UsersService;
+using FantasyFootball.Service.AdvancedServices.UserServiceA;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,9 +11,9 @@ namespace FantasyFootball.Api.Controllers
     public class UsersController : ControllerBase
     {
         // Advanced Services
-        private readonly IUsersServiceA _usersServiceA;
+        private readonly IUserServiceA _usersServiceA;
 
-        public UsersController(IUsersServiceA usersServiceA)
+        public UsersController(IUserServiceA usersServiceA)
         {
             _usersServiceA = usersServiceA;
         }

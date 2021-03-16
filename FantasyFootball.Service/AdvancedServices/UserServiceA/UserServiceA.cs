@@ -1,19 +1,19 @@
 ﻿using FantasyFootball.Entity.Models;
-using FantasyFootball.Service.AdvancedServices.UsersService.UserAuthenticationHandler;
-using FantasyFootball.Service.AdvancedServices.UsersService.Authenticator.Models;
+using FantasyFootball.Service.AdvancedServices.UserServiceA.UserAuthenticationHandler;
+using FantasyFootball.Service.AdvancedServices.UserServiceA.Authenticator.Models;
 using System;
-using FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler.Models;
-using FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler;
+using FantasyFootball.Service.AdvancedServices.UserServiceA.UserSettingsHandler.Models;
+using FantasyFootball.Service.AdvancedServices.UserServiceA.UserSettingsHandler;
 
-namespace FantasyFootball.Service.AdvancedServices.UsersService
+namespace FantasyFootball.Service.AdvancedServices.UserServiceA
 {
-    public class UsersServiceA : IUsersServiceA
+    public class UserServiceA : IUserServiceA
     {
         // Custom Classes
         private readonly IUserAuthenticationHandler _userAuthenticationHandler;
         private readonly IUserSettingsHandler _userSettingsHandler;        
 
-        public UsersServiceA(
+        public UserServiceA(
             
             // Custom Classes
             IUserAuthenticationHandler authenticator, IUserSettingsHandler userSettingsHandler)

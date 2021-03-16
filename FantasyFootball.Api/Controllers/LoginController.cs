@@ -1,6 +1,6 @@
 ﻿using FantasyFootball.Common.Exceptions;
 using FantasyFootball.Entity.Models;
-using FantasyFootball.Service.AdvancedServices.UsersService;
+using FantasyFootball.Service.AdvancedServices.UserServiceA;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -13,7 +13,7 @@ namespace FantasyFootball.Api.Controllers
     public class LoginController : ControllerBase
     {
         // Advanced Services
-        private readonly IUsersServiceA _userServiceA;
+        private readonly IUserServiceA _userServiceA;
 
         // Config
         private readonly IConfiguration _configuration;
@@ -21,7 +21,7 @@ namespace FantasyFootball.Api.Controllers
         public LoginController(
 
             // Advanced Services
-            IUsersServiceA userServiceA,
+            IUserServiceA userServiceA,
 
             // Config
             IConfiguration configuration)

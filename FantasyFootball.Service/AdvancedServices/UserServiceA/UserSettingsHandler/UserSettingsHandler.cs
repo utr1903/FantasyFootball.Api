@@ -1,11 +1,10 @@
 ﻿using FantasyFootball.Common.AuthChecker;
 using FantasyFootball.Common.Exceptions;
-using FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler.Models;
+using FantasyFootball.Service.AdvancedServices.UserServiceA.UserSettingsHandler.Models;
 using FantasyFootball.Service.PrimitiveServices.UserServiceP;
-using Microsoft.AspNetCore.Http;
 using System;
 
-namespace FantasyFootball.Service.AdvancedServices.UsersService.UserSettingsHandler
+namespace FantasyFootball.Service.AdvancedServices.UserServiceA.UserSettingsHandler
 {
     public class UserSettingsHandler : IUserSettingsHandler
     {

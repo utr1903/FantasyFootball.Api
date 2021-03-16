@@ -15,4 +15,22 @@
             ResultData = "User not found!";
         }
     }
+
+    public class UserTeamNotFound : NotFoundException
+    {
+        public UserTeamNotFound()
+        {
+            ExceptionType = ExceptionTypes.NOT_FOUND;
+            ResultData = "User team not found!";
+        }
+    }
+
+    public class PlayerHistoryNotFound : NotFoundException
+    {
+        public PlayerHistoryNotFound()
+        {
+            ExceptionType = ExceptionTypes.NOT_FOUND;
+            ResultData = "Player history not found!";
+        }
+    }
 }

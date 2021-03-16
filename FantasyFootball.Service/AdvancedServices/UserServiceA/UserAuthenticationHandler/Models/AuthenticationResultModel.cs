@@ -1,6 +1,6 @@
 ﻿using FantasyFootball.Entity.Models;
 
-namespace FantasyFootball.Service.AdvancedServices.UsersService.Authenticator.Models
+namespace FantasyFootball.Service.AdvancedServices.UserServiceA.Authenticator.Models
 {
     public class AuthenticationResultModel
     {
