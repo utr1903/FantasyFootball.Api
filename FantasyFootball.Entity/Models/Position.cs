@@ -10,6 +10,7 @@ namespace FantasyFootball.Entity.Models
         public Position()
         {
             PlayerPositions = new HashSet<PlayerPosition>();
+            UserTeamPlayers = new HashSet<UserTeamPlayer>();
         }
 
         public int Id { get; set; }
@@ -17,5 +18,6 @@ namespace FantasyFootball.Entity.Models
         public string Code { get; set; }
 
         public virtual ICollection<PlayerPosition> PlayerPositions { get; set; }
+        public virtual ICollection<UserTeamPlayer> UserTeamPlayers { get; set; }
     }
 }

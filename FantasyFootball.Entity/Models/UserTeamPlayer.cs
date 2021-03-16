@@ -9,7 +9,9 @@ namespace FantasyFootball.Entity.Models
     {
         public Guid Id { get; set; }
         public Guid PlayerHistoryId { get; set; }
+        public int? PositionId { get; set; }
 
         public virtual PlayerHistory PlayerHistory { get; set; }
+        public virtual Position Position { get; set; }
     }
 }

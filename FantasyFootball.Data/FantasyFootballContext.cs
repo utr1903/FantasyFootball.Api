@@ -326,6 +326,11 @@ namespace FantasyFootball.Data
                     .HasForeignKey(d => d.PlayerHistoryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__UserTeamP__Playe__787EE5A0");
+
+                entity.HasOne(d => d.Position)
+                    .WithMany(p => p.UserTeamPlayers)
+                    .HasForeignKey(d => d.PositionId)
+                    .HasConstraintName("FK__UserTeamP__Posit__7F2BE32F");
             });
 
             OnModelCreatingPartial(modelBuilder);
