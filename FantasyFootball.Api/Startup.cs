@@ -48,6 +48,8 @@ using FantasyFootball.Service.PrimitiveServices.SocialLeagueServiceP;
 using FantasyFootball.Service.PrimitiveServices.UserTeamPlayerServiceP;
 using FantasyFootball.Service.PrimitiveServices.UserTeamServiceP;
 using FantasyFootball.Service.AdvancedServices.UserServiceA;
+using FantasyFootball.Repositories.PlayerPositionRepository;
+using FantasyFootball.Service.PrimitiveServices.PlayerPositionServiceP;
 
 namespace FantasyFootball.Api
 {
@@ -139,6 +141,10 @@ namespace FantasyFootball.Api
             services.AddScoped<ITrackableRepository<PlayerHistory>, TrackableRepository<PlayerHistory>>();
             services.AddScoped<IPlayerHistoryRepository<PlayerHistory>, PlayerHistoryRepository<PlayerHistory>>();
 
+            // PlayerPosition
+            services.AddScoped<ITrackableRepository<PlayerPosition>, TrackableRepository<PlayerPosition>>();
+            services.AddScoped<IPlayerPositionRepository<PlayerPosition>, PlayerPositionRepository<PlayerPosition>>();
+
             // Player
             services.AddScoped<ITrackableRepository<Player>, TrackableRepository<Player>>();
             services.AddScoped<IPlayerRepository<Player>, PlayerRepository<Player>>();
@@ -195,6 +201,9 @@ namespace FantasyFootball.Api
 
             // PlayerHistory
             services.AddScoped<IPlayerHistoryServiceP, PlayerHistoryServiceP>();
+
+            // PlayerPosition
+            services.AddScoped<IPlayerPositionServiceP, PlayerPositionServiceP>();
 
             // Player
             services.AddScoped<IPlayerServiceP, PlayerServiceP>();
