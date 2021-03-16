@@ -11,7 +11,9 @@ namespace FantasyFootball.Entity.Models
         public Guid UserId { get; set; }
         public Guid SocialLeagueId { get; set; }
         public Guid MatchWeekId { get; set; }
+        public int? FormationId { get; set; }
 
+        public virtual Formation Formation { get; set; }
         public virtual MatchWeek MatchWeek { get; set; }
         public virtual SocialLeague SocialLeague { get; set; }
         public virtual User User { get; set; }

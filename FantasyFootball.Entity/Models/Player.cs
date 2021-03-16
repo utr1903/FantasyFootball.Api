@@ -10,6 +10,7 @@ namespace FantasyFootball.Entity.Models
         public Player()
         {
             PlayerHistories = new HashSet<PlayerHistory>();
+            PlayerPositions = new HashSet<PlayerPosition>();
         }
 
         public Guid Id { get; set; }
@@ -19,5 +20,6 @@ namespace FantasyFootball.Entity.Models
 
         public virtual Country Country { get; set; }
         public virtual ICollection<PlayerHistory> PlayerHistories { get; set; }
+        public virtual ICollection<PlayerPosition> PlayerPositions { get; set; }
     }
 }

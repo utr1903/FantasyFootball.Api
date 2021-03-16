@@ -26,6 +26,7 @@ namespace FantasyFootball.Data
         public virtual DbSet<MatchWeek> MatchWeeks { get; set; }
         public virtual DbSet<Player> Players { get; set; }
         public virtual DbSet<PlayerHistory> PlayerHistorys { get; set; }
+        public virtual DbSet<PlayerPosition> PlayerPositions { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Season> Seasons { get; set; }
         public virtual DbSet<SocialLeague> SocialLeagues { get; set; }
@@ -171,6 +172,23 @@ namespace FantasyFootball.Data
                     .HasConstraintName("FK__PlayerHis__Playe__6B24EA82");
             });
 
+            modelBuilder.Entity<PlayerPosition>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.HasOne(d => d.Player)
+                    .WithMany(p => p.PlayerPositions)
+                    .HasForeignKey(d => d.PlayerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__PlayerPos__Playe__7D439ABD");
+
+                entity.HasOne(d => d.Position)
+                    .WithMany(p => p.PlayerPositions)
+                    .HasForeignKey(d => d.PositionId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__PlayerPos__Posit__7E37BEF6");
+            });
+
             modelBuilder.Entity<Position>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
@@ -274,6 +292,11 @@ namespace FantasyFootball.Data
             modelBuilder.Entity<UserTeam>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.HasOne(d => d.Formation)
+                    .WithMany(p => p.UserTeams)
+                    .HasForeignKey(d => d.FormationId)
+                    .HasConstraintName("FK__UserTeams__Forma__7A672E12");
 
                 entity.HasOne(d => d.MatchWeek)
                     .WithMany(p => p.UserTeams)
